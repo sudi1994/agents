@@ -1,8 +1,13 @@
 import gradio as gr
 from dotenv import load_dotenv
 from research_manager import ResearchManager
+import httpx
+from openai import AsyncOpenAI
+from agents import set_default_openai_client
+
 
 load_dotenv(override=True)
+set_default_openai_client(AsyncOpenAI(http_client=httpx.AsyncClient(verify=False)))
 
 
 async def run(query: str):

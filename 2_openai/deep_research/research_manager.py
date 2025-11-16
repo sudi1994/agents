@@ -76,6 +76,7 @@ class ResearchManager:
     
     async def send_email(self, report: ReportData) -> None:
         print("Writing email...")
+        print(report)
         result = await Runner.run(
             email_agent,
             report.markdown_report,
